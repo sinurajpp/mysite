@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sinuraj P P — IT Senior Consultant</title>
+<link rel="icon" type="image/jpeg" href="photo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -438,22 +439,33 @@ footer{padding:clamp(24px,6vw,40px) clamp(24px,7vw,72px);border-top:1px solid va
   nav{padding:0 28px}
   .n-links,.n-live{display:none}
   .n-ham{display:flex}
-  /* stack hero vertically only on true mobile */
   .hero{
-    grid-template-columns:1fr;
-    grid-template-rows:auto auto;
-    padding:calc(var(--nav-h)+40px) 24px clamp(48px,12vw,72px);
-    gap:clamp(12px,4vw,20px);
-    align-items:flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: calc(var(--nav-h) + 32px) 24px clamp(48px,12vw,72px);
+    gap: clamp(12px,4vw,20px);
   }
-  .h-right{grid-column:1;grid-row:1;justify-content:center;padding:0}
-  .h-left{grid-column:1;grid-row:2;padding:0;align-items:center;text-align:center}
+  .h-right{order: -1; justify-content: center; padding: 0; margin-top: 0;}
+  .h-left{align-items:center;text-align:center}
   .h-btns{justify-content:center}
   .h-desc,.h-li{margin-left:auto;margin-right:auto}
-  .p-wrap{width:min(260px,100%);height:auto;margin:0 auto}
-  .p-spin{inset:-15px}
-  .p-inner{inset:-6px}
-  .p-dot{left:-12px;top:22%}
+
+  /* RESPONSIVE PHOTO — SQUARE, NO ANIMATION */
+  .p-wrap{
+    width:min(260px,100%);
+    height:auto;
+    margin:0 auto;
+    /* animation removed */
+  }
+  .p-circle {
+    border-radius: 10px !important;
+    transition: border-radius .34s cubic-bezier(.33,1.43,.61,1.19);
+  }
+  /* Remove float/orb on mobile */
+  .p-glow, .p-spin, .p-inner, .p-dot { display: none !important; }
   .badge{display:none}
   .h-name{white-space:normal}
   section{padding:80px 28px}
@@ -475,7 +487,7 @@ footer{padding:clamp(24px,6vw,40px) clamp(24px,7vw,72px);border-top:1px solid va
 }
 @media(max-width:640px){
   nav{padding:0 18px}
-  .hero{padding:calc(var(--nav-h)+40px) 20px clamp(48px,14vw,76px)}
+  .hero{padding:calc(var(--nav-h)+74px) 20px clamp(48px,14vw,76px)}
   .h-left{padding:0}
   .h-right{padding:0}
   .p-wrap{width:min(220px,100%);height:auto}
@@ -501,7 +513,7 @@ footer{padding:clamp(24px,6vw,40px) clamp(24px,7vw,72px);border-top:1px solid va
 }
 @media(max-width:540px){
   nav{padding:0 16px}
-  .hero{padding:calc(var(--nav-h)+40px) 18px clamp(44px,18vw,68px)}
+  .hero{padding:calc(var(--nav-h)+76px) 18px clamp(44px,18vw,68px)}
   .h-desc{margin-bottom:30px}
   .stats{grid-template-columns:1fr}
   .st{padding:24px 20px}
